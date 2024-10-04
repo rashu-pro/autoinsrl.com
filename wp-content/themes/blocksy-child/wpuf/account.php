@@ -1,7 +1,4 @@
 <style>
-  .customer-portal-wrapper{
-
-  }
   .customer-breadcrumb{
     background-color: #f8f8f8;
     padding: 15px 30px;
@@ -86,8 +83,7 @@
     padding: 0 30px 30px;
   }
   .maintenance-history-wrapper ul{
-    padding: 0;
-    padding-left: 30px;
+    padding: 0 0 0 30px;
   }
   .maintenance-history-wrapper ul li{
     margin-bottom: 20px;
@@ -224,7 +220,7 @@
                           $total_mechanic = count($mechanic_details);
                           $mechanic_names = '';
                           foreach ($mechanic_details as $mechanic){
-                            $mechanic_names .= $mechanic->display_name ? $mechanic->display_name : $mechanic->user_login;
+                            $mechanic_names .= $mechanic->display_name ? : $mechanic->user_login;
                             $mechanic_names .= ',';
                           }
                           $mechanic_names = rtrim($mechanic_names, ',');
