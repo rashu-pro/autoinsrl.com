@@ -9,20 +9,44 @@
 /**
 Header style for customer dashboard pages
  */
-.page-id-1191 .ct-sticky-container{
+.page-id-1191 .ct-sticky-container,
+.page-id-1190 .ct-sticky-container,
+.page-id-1193 .ct-sticky-container,
+.page-id-1189 .ct-sticky-container,
+.page-id-1192 .ct-sticky-container{
   background-color: #fff;
   border-bottom: 1px solid #f2f2f2;
 }
-.page-id-1191 .menu>li>.ct-menu-link{
+.page-id-1191 .menu>li>.ct-menu-link,
+.page-id-1190 .menu>li>.ct-menu-link,
+.page-id-1193 .menu>li>.ct-menu-link,
+.page-id-1189 .menu>li>.ct-menu-link,
+.page-id-1192 .menu>li>.ct-menu-link{
   color: #000;
 }
 .page-id-1191 nav[class*=menu] li:hover>.ct-menu-link,
-.page-id-1191 nav[class*=menu] li:hover>.ct-sub-menu-parent {
+.page-id-1191 nav[class*=menu] li:hover>.ct-sub-menu-parent,
+.page-id-1190 nav[class*=menu] li:hover>.ct-menu-link,
+.page-id-1190 nav[class*=menu] li:hover>.ct-sub-menu-parent,
+.page-id-1193 nav[class*=menu] li:hover>.ct-menu-link,
+.page-id-1193 nav[class*=menu] li:hover>.ct-sub-menu-parent,
+.page-id-1189 nav[class*=menu] li:hover>.ct-menu-link,
+.page-id-1189 nav[class*=menu] li:hover>.ct-sub-menu-parent,
+.page-id-1192 nav[class*=menu] li:hover>.ct-menu-link,
+.page-id-1192 nav[class*=menu] li:hover>.ct-sub-menu-parent{
   color: #898787;
 }
-.page-id-1191 .site-main{
+.page-id-1191 .site-main,
+.page-id-1190 .site-main,
+.page-id-1193 .site-main,
+.page-id-1189 .site-main,
+.page-id-1192 .site-main{
   padding-top: 100px;
 }
 .ct-icon, .ct-icon-container svg{
   fill: #202020 !important;
+}
+.page-id-1193 .ct-container-full,
+.page-id-1192 .ct-container-full{
+  max-width: 450px;
 }
