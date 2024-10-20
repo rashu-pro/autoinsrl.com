@@ -51,6 +51,7 @@
   }
   .maintenance-wrapper{
     border: 1px solid #DEDBDB;
+    margin-bottom: 60px;
   }
   .maintenance-wrapper .maintenance-head{
     background-color: #F4F6F6;
@@ -83,10 +84,28 @@
     padding: 0 30px 30px;
   }
   .maintenance-history-wrapper ul{
-    padding: 0 0 0 30px;
+    padding: 0 0 0 0;
   }
   .maintenance-history-wrapper ul li{
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+    list-style: none;
+    position: relative;
+    color: #000;
+  }
+  .maintenance-history-wrapper ul li .text-secondary{
+    border: 1px solid #ddd;
+    display: inline-block;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .maintenance-history-wrapper ul li .text-secondary img{
+    display: inline-block;
+    max-width: 13px;
+    position: relative;
+    top: -2px;
   }
   @media (min-width: 768px){
     .vehicle-brand{
@@ -198,7 +217,7 @@
                       )
                     ),
                     'orderby' => 'date_of_maintenance',
-                    'order' => 'DESC'
+                    'order' => 'ASC'
                   );
 
                   $maintenance_query = new WP_Query($args);
@@ -212,8 +231,11 @@
                         $mechanic_details = get_field('mechanic_name');
                         ?>
                         <li>
-                          <p class="m-0" style="font-size: 24px; font-weight: 600"> #<?php echo $counter ?> <?php the_field('date_of_maintenance') ?> </p>
-                          <p class="m-0" style="font-size: 20px; font-weight: 500; color: #25AF6A"> <?php the_title() ?> </p>
+                          <p class="m-0" style="font-size: 20px; font-weight: 500; color: #25AF6A"> <?php echo $counter ?>. <?php the_title() ?> </p>
+                          <p class="m-0 text-secondary">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/calendar.png" alt="date">
+                            <?php the_field('date_of_maintenance') ?>
+                          </p>
                           <p class="m-0"> <?php the_field('descriptionnotes') ?> </p>
                           <strong>Mechanic:</strong>
                           <?php
@@ -227,7 +249,9 @@
                           echo $mechanic_names;
                           ?>
                           <br />
-                          <strong>Type:</strong> <?php the_field('maintenance_type'); ?>
+                          <?php if(get_field('maintenance_type')): ?>
+                            <strong>Type:</strong> <?php the_field('maintenance_type'); ?>
+                          <?php endif; ?>
                         </li>
                         <?php $counter++ ?>
                       <?php endwhile; ?>

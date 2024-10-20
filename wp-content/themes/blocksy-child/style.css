@@ -50,3 +50,8 @@ Header style for customer dashboard pages
 .page-id-1192 .ct-container-full{
   max-width: 450px;
 }
+
+[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg{
+  fill: #fff!important;
+}
