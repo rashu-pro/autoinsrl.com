@@ -1,3 +1,11 @@
+<?php
+if (is_user_logged_in()) {
+  $current_user = wp_get_current_user();
+  if ( in_array( 'administrator', $current_user->roles ) || in_array('mechanic', $current_user->roles) ) {
+    wp_redirect(home_url('/wp-admin/'));
+  }
+}
+?>
 <style>
   .customer-breadcrumb{
     background-color: #f8f8f8;
@@ -120,7 +128,6 @@
 <div class="my-account-wrapper">
   <?php
   if (is_user_logged_in()) {
-    $current_user = wp_get_current_user();
     ?>
     <div class="customer-portal-wrapper">
       <!-- Breadcrumb -->
@@ -266,7 +273,7 @@
         <?php endif; ?>
       </div>
     </div>
-    <?php
+  <?php
   }
   ?>
 </div>
