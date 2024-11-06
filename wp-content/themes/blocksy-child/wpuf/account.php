@@ -100,21 +100,30 @@ if (is_user_logged_in()) {
     position: relative;
     color: #000;
   }
-  .maintenance-history-wrapper ul li .text-secondary{
-    border: 1px solid #ddd;
+  .maintenance-history-wrapper ul li .date-maintenance{
     display: inline-block;
-    border-radius: 6px;
-    padding: 2px 6px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
   }
-  .maintenance-history-wrapper ul li .text-secondary img{
+  .maintenance-history-wrapper ul li .date-maintenance img{
     display: inline-block;
     max-width: 13px;
     position: relative;
     top: -2px;
   }
+
+  .title-maintenance{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: -5px;
+  }
+  .date-maintenance{
+    opacity: 0.8;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
   @media (min-width: 768px){
     .vehicle-brand{
       min-width: 250px;
@@ -238,27 +247,17 @@ if (is_user_logged_in()) {
                         $mechanic_details = get_field('mechanic_name');
                         ?>
                         <li>
-                          <p class="m-0" style="font-size: 20px; font-weight: 500; color: #25AF6A"> <?php echo $counter ?>. <?php the_title() ?> </p>
-                          <p class="m-0 text-secondary">
+                          <p class="m-0 date-maintenance">
                             <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/calendar.png" alt="date">
                             <?php the_field('date_of_maintenance') ?>
                           </p>
-                          <p class="m-0"> <?php the_field('descriptionnotes') ?> </p>
-                          <strong>Mechanic:</strong>
-                          <?php
-                          $total_mechanic = count($mechanic_details);
-                          $mechanic_names = '';
-                          foreach ($mechanic_details as $mechanic){
-                            $mechanic_names .= $mechanic->display_name ? : $mechanic->user_login;
-                            $mechanic_names .= ',';
-                          }
-                          $mechanic_names = rtrim($mechanic_names, ',');
-                          echo $mechanic_names;
-                          ?>
-                          <br />
-                          <?php if(get_field('maintenance_type')): ?>
-                            <strong>Type:</strong> <?php the_field('maintenance_type'); ?>
+                          <p class="title-maintenance m-0"> <?php echo $counter ?>. <?php the_title() ?> </p>
+                          <?php if(get_field('km')): ?>
+                            <div style="margin-top: 10px">
+                              <strong>KM:</strong> <?php the_field('km'); ?>
+                            </div>
                           <?php endif; ?>
+                          <p class="m-0"> <?php the_field('descriptionnotes') ?> </p>
                         </li>
                         <?php $counter++ ?>
                       <?php endwhile; ?>
