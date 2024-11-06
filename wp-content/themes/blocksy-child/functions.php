@@ -130,3 +130,20 @@ function get_first_and_last_name_from_name($name) {
     'last_name'  => $last_name
   );
 }
+
+function filter_vehicles_by_author_in_admin($query) {
+  if(is_admin()){
+    // Check if it's the admin area and main query
+    $current_user_id = get_current_user_id();
+    $current_user = wp_get_current_user();
+    if (in_array('mechanic', $current_user->roles) && $query->is_main_query()) {
+      // Check if we are on the "Vehicles" post type
+      $screen = get_current_screen();
+      if ($screen && ($screen->post_type == 'vehicle' || $screen->post_type == 'maintenance_record')) {
+        $query->set('author', $current_user_id);
+      }
+    }
+  }
+}
+add_action('pre_get_posts', 'filter_vehicles_by_author_in_admin');
+
