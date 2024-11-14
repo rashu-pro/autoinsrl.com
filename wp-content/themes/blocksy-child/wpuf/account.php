@@ -30,15 +30,15 @@ if (is_user_logged_in()) {
     color: #000;
   }
   .customer-portal-title-wrapper{
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 20px;
   }
   .customer-portal-title{
     color: #000;
-    font-size: 28px;
+    font-size: 24px;
   }
   .customer-portal-title-wrapper .customer-portal-title{
-    padding-right: 50px;
+    padding-right: 20px;
     display: inline-block;
     background-color: #fff;
     margin: 0;
@@ -123,6 +123,18 @@ if (is_user_logged_in()) {
     font-weight: 500;
     text-transform: uppercase;
   }
+  .empty-maintenance-block{
+    margin-top: 20%;
+  }
+  .empty-maintenance-block .icon-holder img{
+    max-width: 150px;
+    margin: 0 auto;
+  }
+  .empty-maintenance-block .help-text{
+    text-align: center;
+    color: #3E3A3A;
+    margin-top: 35px;
+  }
 
   @media (min-width: 768px){
     .vehicle-brand{
@@ -130,6 +142,30 @@ if (is_user_logged_in()) {
     }
     .vehicle-model{
       min-width: 250px;
+    }
+    .customer-portal-title-wrapper{
+      margin-top: 30px;
+    }
+    .empty-maintenance-block .icon-holder img{
+      max-width: 232px;
+    }
+    .customer-portal-title{
+      font-size: 28px;
+    }
+    .customer-portal-title-wrapper .customer-portal-title{
+      padding-right: 50px;
+    }
+    .empty-maintenance-block{
+      margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 992px){
+    .customer-email-block{
+      display: none;
+    }
+    .customer-portal-title-wrapper .sec-heading-border{
+      display: none;
     }
   }
 </style>
@@ -269,6 +305,15 @@ if (is_user_logged_in()) {
             </div>
           <?php endwhile; ?>
           <?php wp_reset_postdata(); ?>
+        <?php else: ?>
+        <div class="empty-maintenance">
+          <div class="empty-maintenance-block">
+            <div class="icon-holder">
+              <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/img/empty-folder.png" alt="no maintenance" />
+            </div>
+            <p class="help-text">No maintenance record found!</p>
+          </div>
+        </div>
         <?php endif; ?>
       </div>
     </div>

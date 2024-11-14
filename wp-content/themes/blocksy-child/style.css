@@ -45,7 +45,7 @@ Header style for customer dashboard pages
 .page-id-1189 .site-main,
 .page-id-1192 .site-main,
 .page-id-1103 .site-main{
-  padding-top: 100px;
+  padding-top: 70px;
 }
 .ct-icon, .ct-icon-container svg{
   fill: #202020 !important;
@@ -77,4 +77,29 @@ Header style for customer dashboard pages
 }
 [data-header*="type-1"] .ct-header [data-transparent-row="no"] .menu>li.menu-link-register .ct-menu-link{
 	color: #202020!important;
+}
+.page-id-1191[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+.page-id-1191[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg,
+.page-id-1190[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+.page-id-1190[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg,
+.page-id-1193[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+.page-id-1193[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg,
+.page-id-1189[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+.page-id-1189[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg,
+.page-id-1192[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+.page-id-1192[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg,
+.page-id-1103[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon,
+.page-id-1103[data-header*="type-1"] .ct-header [data-transparent-row="yes"] .ct-icon-container svg{
+  fill: #000 !important;
+}
+
+@media (min-width: 992px) {
+  .page-id-1191 .site-main,
+  .page-id-1190 .site-main,
+  .page-id-1193 .site-main,
+  .page-id-1189 .site-main,
+  .page-id-1192 .site-main,
+  .page-id-1103 .site-main{
+    padding-top: 100px;
+  }
 }
